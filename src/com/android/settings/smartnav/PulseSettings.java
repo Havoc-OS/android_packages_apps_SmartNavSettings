@@ -40,8 +40,8 @@ import android.view.MenuInflater;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.havoc.settings.preferences.SecureSettingSeekBarPreference;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.havoc.support.preferences.CustomSeekBarPreference;
+import com.havoc.support.colorpicker.ColorPickerPreference;
 
 public class PulseSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -75,18 +75,18 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     ColorPickerPreference mLavaLampColorTo;
     SwitchPreference mLavaLampEnabled;
     SwitchPreference mSmoothingEnabled;
-    SecureSettingSeekBarPreference mCustomDimen;
-    SecureSettingSeekBarPreference mCustomDiv;
-    SecureSettingSeekBarPreference mFilled;
-    SecureSettingSeekBarPreference mEmpty;
-    SecureSettingSeekBarPreference mFudge;
-    SecureSettingSeekBarPreference mSolidFudge;
-    SecureSettingSeekBarPreference mSolidSpeed;
-    SecureSettingSeekBarPreference mFadingSpeed;
-    SecureSettingSeekBarPreference mSolidCount;
-    SecureSettingSeekBarPreference mSolidOpacity;
-    SecureSettingSeekBarPreference mNavButtonsOpacity;
-    SecureSettingSeekBarPreference mFadingOpacity;
+    CustomSeekBarPreference mCustomDimen;
+    CustomSeekBarPreference mCustomDiv;
+    CustomSeekBarPreference mFilled;
+    CustomSeekBarPreference mEmpty;
+    CustomSeekBarPreference mFudge;
+    CustomSeekBarPreference mSolidFudge;
+    CustomSeekBarPreference mSolidSpeed;
+    CustomSeekBarPreference mFadingSpeed;
+    CustomSeekBarPreference mSolidCount;
+    CustomSeekBarPreference mSolidOpacity;
+    CustomSeekBarPreference mNavButtonsOpacity;
+    CustomSeekBarPreference mFadingOpacity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -157,80 +157,80 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         int customdimen = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_DIMEN, 14, UserHandle.USER_CURRENT);
-        mCustomDimen = (SecureSettingSeekBarPreference) findPreference(CUSTOM_DIMEN);
+        mCustomDimen = (CustomSeekBarPreference) findPreference(CUSTOM_DIMEN);
         mCustomDimen.setValue(customdimen);
         mCustomDimen.setOnPreferenceChangeListener(this);
 
         int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_DIV, 16, UserHandle.USER_CURRENT);
-        mCustomDiv = (SecureSettingSeekBarPreference) findPreference(CUSTOM_DIV);
+        mCustomDiv = (CustomSeekBarPreference) findPreference(CUSTOM_DIV);
         mCustomDiv.setValue(customdiv);
         mCustomDiv.setOnPreferenceChangeListener(this);
 
         int filled = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 4, UserHandle.USER_CURRENT);
-        mFilled = (SecureSettingSeekBarPreference) findPreference(PULSE_BLOCK);
+        mFilled = (CustomSeekBarPreference) findPreference(PULSE_BLOCK);
         mFilled.setValue(filled);
         mFilled.setOnPreferenceChangeListener(this);
 
         int empty = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 1, UserHandle.USER_CURRENT);
-        mEmpty = (SecureSettingSeekBarPreference) findPreference(EMPTY_BLOCK);
+        mEmpty = (CustomSeekBarPreference) findPreference(EMPTY_BLOCK);
         mEmpty.setValue(empty);
         mEmpty.setOnPreferenceChangeListener(this);
 
         int fudge = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 4, UserHandle.USER_CURRENT);
-        mFudge = (SecureSettingSeekBarPreference) findPreference(FUDGE_FACOR);
+        mFudge = (CustomSeekBarPreference) findPreference(FUDGE_FACOR);
         mFudge.setValue(fudge);
         mFudge.setOnPreferenceChangeListener(this);
 
         int solidfudge = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 5,
                 UserHandle.USER_CURRENT);
-        mSolidFudge = (SecureSettingSeekBarPreference) findPreference(SOLID_FUDGE);
+        mSolidFudge = (CustomSeekBarPreference) findPreference(SOLID_FUDGE);
         mSolidFudge.setValue(solidfudge);
         mSolidFudge.setOnPreferenceChangeListener(this);
 
         int speed = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_LAVALAMP_SOLID_SPEED, 10000, UserHandle.USER_CURRENT);
         mSolidSpeed =
-                (SecureSettingSeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
+                (CustomSeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
         mSolidSpeed.setValue(speed);
         mSolidSpeed.setOnPreferenceChangeListener(this);
 
         int fspeed = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
         mFadingSpeed =
-                (SecureSettingSeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
+                (CustomSeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
         mFadingSpeed.setValue(fspeed);
         mFadingSpeed.setOnPreferenceChangeListener(this);
 
         int count = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_SOLID_UNITS_COUNT, 64, UserHandle.USER_CURRENT);
         mSolidCount =
-                (SecureSettingSeekBarPreference) findPreference(PULSE_SOLID_UNITS_COUNT);
+                (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_COUNT);
         mSolidCount.setValue(count);
         mSolidCount.setOnPreferenceChangeListener(this);
 
         int opacitysolid = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_SOLID_UNITS_OPACITY, 200, UserHandle.USER_CURRENT);
         mSolidOpacity =
-                (SecureSettingSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
+                (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
         mSolidOpacity.setValue(opacitysolid);
         mSolidOpacity.setOnPreferenceChangeListener(this);
 
         int buttonsOpacity = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
         mNavButtonsOpacity =
-                (SecureSettingSeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
+                (CustomSeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
         mNavButtonsOpacity.setValue(buttonsOpacity);
         mNavButtonsOpacity.setOnPreferenceChangeListener(this);
 
         int opacityblock = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_FADING_BLOCKS_OPACITY, 200, UserHandle.USER_CURRENT);
         mFadingOpacity =
-                (SecureSettingSeekBarPreference) findPreference(PULSE_FADING_BLOCKS_OPACITY);
+                (CustomSeekBarPreference) findPreference(PULSE_FADING_BLOCKS_OPACITY);
         mFadingOpacity.setValue(opacityblock);
         mFadingOpacity.setOnPreferenceChangeListener(this);
     }

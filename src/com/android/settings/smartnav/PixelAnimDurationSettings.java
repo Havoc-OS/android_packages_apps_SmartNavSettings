@@ -41,9 +41,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.havoc.settings.preferences.SecureSettingSeekBarPreference;
+import com.havoc.support.preferences.CustomSeekBarPreference;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.havoc.support.colorpicker.ColorPickerPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,14 +65,14 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
     private static final String COLOR_CAT = "pixel_anim_color";
     private static final String COLOR_STYLE = "dot_color_switch";
 
-    private SecureSettingSeekBarPreference mPixelx;
-    private SecureSettingSeekBarPreference mPixely;
-    private SecureSettingSeekBarPreference mCollapse;
-    private SecureSettingSeekBarPreference mBg;
-    private SecureSettingSeekBarPreference mRetract;
-    private SecureSettingSeekBarPreference mDiamond;
-    private SecureSettingSeekBarPreference mDots;
-    private SecureSettingSeekBarPreference mHome;
+    private CustomSeekBarPreference mPixelx;
+    private CustomSeekBarPreference mPixely;
+    private CustomSeekBarPreference mCollapse;
+    private CustomSeekBarPreference mBg;
+    private CustomSeekBarPreference mRetract;
+    private CustomSeekBarPreference mDiamond;
+    private CustomSeekBarPreference mDots;
+    private CustomSeekBarPreference mHome;
     private ListPreference mColorStyle;
     private ColorPickerPreference mTopColor;
     private ColorPickerPreference mBottomColor;
@@ -123,56 +123,56 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
 		int defaultValue;
 
         mPixelx =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_X);
+                (CustomSeekBarPreference) findPreference(PIXEL_X);
         int xanim = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.OPA_ANIM_DURATION_X, 133, UserHandle.USER_CURRENT);
         mPixelx.setValue(xanim / 1);
         mPixelx.setOnPreferenceChangeListener(this);
 
         mPixely =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_Y);
+                (CustomSeekBarPreference) findPreference(PIXEL_Y);
         int yanim = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.OPA_ANIM_DURATION_Y, 255, UserHandle.USER_CURRENT);
         mPixely.setValue(yanim / 1);
         mPixely.setOnPreferenceChangeListener(this);
 
         mCollapse =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_COLLAPSE);
+                (CustomSeekBarPreference) findPreference(PIXEL_COLLAPSE);
         int xcol = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.COLLAPSE_ANIMATION_DURATION_RY, 83, UserHandle.USER_CURRENT);
         mCollapse.setValue(xcol / 1);
         mCollapse.setOnPreferenceChangeListener(this);
 
         mBg =
-               (SecureSettingSeekBarPreference) findPreference(PIXEL_BG);
+               (CustomSeekBarPreference) findPreference(PIXEL_BG);
         int bg = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.COLLAPSE_ANIMATION_DURATION_BG, 100, UserHandle.USER_CURRENT);
         mBg.setValue(yanim / 1);
         mBg.setOnPreferenceChangeListener(this);
 
         mRetract =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_RETRACT);
+                (CustomSeekBarPreference) findPreference(PIXEL_RETRACT);
         int ret = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.RETRACT_ANIMATION_DURATION, 300, UserHandle.USER_CURRENT);
         mRetract.setValue(ret/ 1);
         mRetract.setOnPreferenceChangeListener(this);
 
         mDiamond =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_DIAMOND);
+                (CustomSeekBarPreference) findPreference(PIXEL_DIAMOND);
         int diam = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.DIAMOND_ANIMATION_DURATION, 200, UserHandle.USER_CURRENT);
         mDiamond.setValue(diam / 1);
         mDiamond.setOnPreferenceChangeListener(this);
 
         mDots =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_DOTS);
+                (CustomSeekBarPreference) findPreference(PIXEL_DOTS);
         int dots = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.DOTS_RESIZE_DURATION, 200, UserHandle.USER_CURRENT);
         mDots.setValue(dots / 1);
         mDots.setOnPreferenceChangeListener(this);
 
         mHome =
-                (SecureSettingSeekBarPreference) findPreference(PIXEL_HOME);
+                (CustomSeekBarPreference) findPreference(PIXEL_HOME);
         int home = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.HOME_RESIZE_DURATION, 255, UserHandle.USER_CURRENT);
         mHome.setValue(home / 1);
