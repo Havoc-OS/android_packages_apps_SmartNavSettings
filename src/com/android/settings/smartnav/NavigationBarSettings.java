@@ -39,6 +39,7 @@ import com.android.internal.util.hwkeys.Config.ButtonConfig;
 import com.android.settings.R;
 
 import com.havoc.support.preferences.CustomSeekBarPreference;
+import com.havoc.support.preferences.SecureSettingMasterSwitchPreference;
 
 import java.util.ArrayList;
 
@@ -66,7 +67,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mBarHeightPort;
     private CustomSeekBarPreference mBarHeightLand;
     private CustomSeekBarPreference mBarWidth;
-    private PreferenceScreen mPulseSettings;
+    private SecureSettingMasterSwitchPreference mShowPulse;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,13 +81,18 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mDefaultSettings = (Preference) findPreference(KEY_DEFAULT_NAVBAR_SETTINGS);
         mFlingSettings = (PreferenceScreen) findPreference(KEY_FLING_NAVBAR_SETTINGS);
         mSmartbarSettings = (PreferenceScreen) findPreference(KEY_SMARTBAR_SETTINGS);
-        mPulseSettings = (PreferenceScreen) findPreference(KEY_PULSE_SETTINGS);
 
         boolean showing = Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.NAVIGATION_BAR_VISIBLE,
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
         updateBarVisibleAndUpdatePrefs(showing);
         mNavbarVisibility.setOnPreferenceChangeListener(this);
+
+        mShowPulse = (SecureSettingMasterSwitchPreference) findPreference("eos_fling_show_pulse");
+        mShowPulse.setOnPreferenceChangeListener(this);
+        int showPulse = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.FLING_PULSE_ENABLED, 0, UserHandle.USER_CURRENT);
+        mShowPulse.setChecked(showPulse != 0);
 
         int mode = Settings.Secure.getInt(getContentResolver(), Settings.Secure.NAVIGATION_BAR_MODE,
                 0);
@@ -128,8 +134,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 mSmartbarSettings.setSelectable(false);
                 mFlingSettings.setEnabled(false);
                 mFlingSettings.setSelectable(false);
-                mPulseSettings.setEnabled(true);
-                mPulseSettings.setSelectable(true);
+                mShowPulse.setEnabled(true);
+                mShowPulse.setSelectable(true);
                 break;
             case 1:
                 mDefaultSettings.setEnabled(false);
@@ -138,8 +144,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 mSmartbarSettings.setSelectable(true);
                 mFlingSettings.setEnabled(false);
                 mFlingSettings.setSelectable(false);
-                mPulseSettings.setEnabled(true);
-                mPulseSettings.setSelectable(true);
+                mShowPulse.setEnabled(true);
+                mShowPulse.setSelectable(true);
                 break;
             case 2:
                 mDefaultSettings.setEnabled(false);
@@ -148,8 +154,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 mSmartbarSettings.setSelectable(false);
                 mFlingSettings.setEnabled(true);
                 mFlingSettings.setSelectable(true);
-                mPulseSettings.setEnabled(true);
-                mPulseSettings.setSelectable(true);
+                mShowPulse.setEnabled(true);
+                mShowPulse.setSelectable(true);
                 break;
         }
     }
@@ -196,6 +202,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             int val = (Integer) newValue;
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_WIDTH, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference.equals(mShowPulse)) {
+            boolean enabled = ((Boolean) newValue).booleanValue();
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_ENABLED, enabled ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

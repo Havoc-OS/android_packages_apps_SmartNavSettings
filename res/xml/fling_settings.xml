@@ -17,7 +17,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/fling_interface" >
+    android:title="@string/fling_settings" >
 
     <PreferenceCategory
         android:key="eos_actions_swipe_category"
@@ -112,7 +112,8 @@
 
         <SwitchPreference
             android:key="eos_fling_show_logo"
-            android:title="@string/fling_show_logo_title" />
+            android:title="@string/fling_show_logo_title"
+            android:summary="@string/fling_show_logo_summary" />
 
         <SwitchPreference
             android:key="eos_fling_animate_logo"
@@ -123,25 +124,29 @@
         <Preference
             android:key="fling_custom_logo_pick"
             android:dependency="eos_fling_show_logo"
-            android:title="@string/fling_logo_custom_logo_pick_title" />
+            android:title="@string/fling_logo_custom_logo_pick_title"
+            android:summary="@string/fling_logo_custom_logo_pick_summary" />
 
         <Preference
             android:key="fling_custom_logo_gallery_pick"
             android:dependency="eos_fling_show_logo"
-            android:title="@string/fling_logo_custom_logo_image_pick_title" />
+            android:title="@string/fling_logo_custom_logo_image_pick_title"
+            android:summary="@string/fling_logo_custom_logo_image_pick_summary" />
 
         <Preference
             android:key="fling_custom_logo_reset"
             android:dependency="eos_fling_show_logo"
-            android:title="@string/fling_logo_custom_logo_reset_title" />
+            android:title="@string/fling_logo_custom_logo_reset_title"
+            android:summary="@string/fling_logo_custom_logo_reset_summary" />
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="fling_logo_opacity"
             android:dependency="eos_fling_show_logo"
             android:title="@string/fling_logo_opacity_title"
             android:max="255"
-            android:min="0"
+            settings:min="0"
             settings:units=""
+            settings:interval="5"
             android:defaultValue="255"
             android:persistent="false" />
 
@@ -153,7 +158,7 @@
         <com.havoc.support.colorpicker.ColorPickerPreference
             android:key="eos_fling_ripple_color"
             android:title="@string/fling_ripple_color"
-            android:defaultValue="0xffffff"
+            settings:defaultColorValue="0xffffffff"
             android:dependency="eos_fling_show_ripple" />
 
         <SwitchPreference
@@ -164,7 +169,7 @@
         <com.havoc.support.colorpicker.ColorPickerPreference
             android:key="eos_fling_trails_color"
             android:title="@string/fling_trails_color_title"
-            android:defaultValue="0xffffff"
+            settings:defaultColorValue="0xffffffff"
             android:dependency="eos_fling_trails_enable" />
 
         <com.havoc.support.preferences.CustomSeekBarPreference
@@ -172,7 +177,7 @@
             android:title="@string/fling_trails_width_title"
             android:defaultValue="15"
             android:max="25"
-            android:min="1"
+            settings:min="1"
             settings:units="dp"
             android:dependency="eos_fling_trails_enable"
             android:persistent="false" />
@@ -186,8 +191,9 @@
             android:key="du_fling_longpress_pref"
             android:title="@string/fling_longpress_title"
             android:max="350"
-            android:min="125"
+            settings:min="125"
             settings:interval="5"
+            android:defaultValue="250"
             settings:units="ms"/>
 
         <Preference
@@ -229,7 +235,7 @@
             android:title="@string/landscape_left_swipe_title"
             android:defaultValue="25"
             android:max="60"
-            android:min="10"
+            settings:min="10"
             settings:units="%"
             android:persistent="false" />
 
@@ -238,7 +244,7 @@
             android:title="@string/vertical_up_swipe_title"
             android:defaultValue="40"
             android:max="60"
-            android:min="10"
+            settings:min="10"
             settings:units="%"
             android:persistent="false" />
 
@@ -247,7 +253,7 @@
             android:title="@string/vertical_down_swipe_title"
             android:defaultValue="40"
             android:max="60"
-            android:min="10"
+            settings:min="10"
             settings:units="%"
             android:persistent="false" />
     </PreferenceCategory>

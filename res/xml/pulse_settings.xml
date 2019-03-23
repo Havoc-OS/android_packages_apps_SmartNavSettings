@@ -19,155 +19,137 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings" >
 
-    <SwitchPreference
-        android:key="eos_fling_show_pulse"
-        android:title="@string/fling_show_pulse_title"
-        android:summary="@string/fling_show_pulse_summary" />
-
 	<Preference
         android:key="blacklist_fragment"
         android:fragment="com.android.settings.smartnav.PulseBlacklist"
         android:title="@string/pulse_blacklist_title"
         android:summary="@string/pulse_blacklist_summary"
-        android:persistent="false"
-        android:dependency="eos_fling_show_pulse" />
+        android:persistent="false"  />
 
     <ListPreference
         android:key="pulse_render_mode"
         android:title="@string/pulse_render_mode_title"
         android:entries="@array/pulse_render_mode_entries"
-        android:entryValues="@array/pulse_render_mode_values"
-        android:dependency="eos_fling_show_pulse" />
+        android:entryValues="@array/pulse_render_mode_values"  />
 
     <SwitchPreference
         android:key="pulse_auto_color"
         android:title="@string/pulse_auto_color_title"
-        android:summary="@string/pulse_auto_color_summary"
-        android:dependency="eos_fling_show_pulse" />
+        android:summary="@string/pulse_auto_color_summary"  />
 
     <com.havoc.support.colorpicker.ColorPickerPreference
         android:key="eos_fling_pulse_color"
         android:title="@string/fling_pulse_color"
         android:summary="@string/fling_pulse_color_summary"
-        android:defaultValue="0xffffff"
-        android:dependency="eos_fling_show_pulse" />
+        settings:defaultColorValue="0xffffffff" />
 
     <SwitchPreference
         android:key="pulse_accent_color_enabled"
         android:title="@string/pulse_accent_color_title"
-        android:summary="@string/pulse_accent_color_summary"
-        android:dependency="eos_fling_show_pulse" />
+        android:summary="@string/pulse_accent_color_summary"  />
 
     <SwitchPreference
         android:key="fling_smoothing_enabled"
         android:title="@string/fling_smoothing_enabled_title"
-        android:summary="@string/fling_smoothing_enabled_summary"
-        android:dependency="eos_fling_show_pulse" />
+        android:summary="@string/fling_smoothing_enabled_summary"  />
 
     <SwitchPreference
         android:key="eos_fling_lavalamp"
         android:title="@string/eos_fling_lavalamp_title"
-        android:summary="@string/eos_fling_lavalamp_summary"
-        android:dependency="eos_fling_show_pulse" />
+        android:summary="@string/eos_fling_lavalamp_summary"  />
 
     <com.havoc.support.colorpicker.ColorPickerPreference
         android:key="fling_lavalamp_color_from"
         android:title="@string/fling_lavalamp_color_from"
-        android:defaultValue="0xffff8080"
-        android:dependency="eos_fling_lavalamp" />
+        android:dependency="eos_fling_lavalamp"
+        settings:defaultColorValue="0xffff8080" />
 
     <com.havoc.support.colorpicker.ColorPickerPreference
         android:key="fling_lavalamp_color_to"
         android:title="@string/fling_lavalamp_color_to"
-        android:defaultValue="0xff8080ff"
-        android:dependency="eos_fling_lavalamp" />
+        android:dependency="eos_fling_lavalamp"
+        settings:defaultColorValue="0xff8080ff" />
 
     <com.havoc.support.preferences.CustomSeekBarPreference
         android:key="pulse_custom_buttons_opacity"
         android:title="@string/pulse_custom_buttons_opacity_title"
         android:max="255"
-        android:min="0"
-        android:defaultValue="200"
-        android:dependency="eos_fling_show_pulse"/>
+        settings:min="0"
+        settings:interval="5"
+        android:defaultValue="200" />
 
     <PreferenceCategory
         android:key="pulse_fading_bars_category"
-        android:title="@string/pulse_legacy_mode_advanced_category"
-        android:dependency="eos_fling_show_pulse">
+        android:title="@string/pulse_legacy_mode_advanced_category" >
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="pulse_custom_dimen"
             android:title="@string/pulse_custom_dimen"
             android:max="30"
-            android:min="1"
+            settings:min="1"
             settings:units="dp"
-            android:defaultValue="14"
-            android:dependency="pulse_fading_bars_category"/>
+            android:defaultValue="14" />
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="pulse_custom_div"
             android:title="@string/pulse_custom_div"
             android:max="44"
-            android:min="2"
+            settings:min="2"
             settings:interval="2"
             settings:units="dp"
-            android:defaultValue="16"
-            android:dependency="pulse_fading_bars_category"/>
-
-        <com.havoc.support.preferences.CustomSeekBarPreference
-            android:key="pulse_filled_block_size"
-            android:title="@string/pulse_filled_block_size"
-            android:max="8"
-            android:min="4"
-            settings:units="dp"
-            android:defaultValue="4"
-            android:dependency="pulse_fading_bars_category"/>
-
-        <com.havoc.support.preferences.CustomSeekBarPreference
-            android:key="pulse_empty_block_size"
-            android:title="@string/pulse_empty_block_size"
-            android:max="4"
-            android:min="0"
-            settings:units="dp"
-            android:defaultValue="1"
-            android:dependency="pulse_fading_bars_category"/>
-
-        <com.havoc.support.preferences.CustomSeekBarPreference
-            android:key="pulse_custom_fudge_factor"
-            android:title="@string/pulse_custom_fudge_factor"
-            android:max="6"
-            android:min="2"
-            android:defaultValue="4"
-            android:dependency="pulse_fading_bars_category"/>
+            android:defaultValue="16" />
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="pulse_fading_blocks_opacity"
             android:title="@string/pulse_fading_blocks_opacity"
             android:max="255"
-            android:min="0"
-            android:defaultValue="200"
-            android:dependency="eos_fling_show_pulse" />
+            settings:min="0"
+            settings:interval="5"
+            android:defaultValue="200" />
+
+        <com.havoc.support.preferences.CustomSeekBarPreference
+            android:key="pulse_filled_block_size"
+            android:title="@string/pulse_filled_block_size"
+            android:max="8"
+            settings:min="4"
+            settings:units="dp"
+            android:defaultValue="4" />
+
+        <com.havoc.support.preferences.CustomSeekBarPreference
+            android:key="pulse_empty_block_size"
+            android:title="@string/pulse_empty_block_size"
+            android:max="4"
+            settings:min="0"
+            settings:units="dp"
+            android:defaultValue="1" />
+
+        <com.havoc.support.preferences.CustomSeekBarPreference
+            android:key="pulse_custom_fudge_factor"
+            android:title="@string/pulse_custom_fudge_factor"
+            android:max="6"
+            settings:min="2"
+            android:defaultValue="4" />
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="fling_pulse_lavalamp_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            android:min="200"
+            settings:min="200"
             settings:units="ms"
-            android:defaultValue="10000"
-            android:dependency="pulse_fading_bars_category"/>
+            settings:interval="100"
+            android:defaultValue="10000" />
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="pulse_2"
-        android:title="@string/pulse_solid_dimen_category" 
-        android:dependency="eos_fling_show_pulse">
+        android:title="@string/pulse_solid_dimen_category" >
 
         <com.havoc.support.preferences.CustomSeekBarPreference
             android:key="pulse_solid_units_opacity"
             android:title="@string/pulse_solid_units_opacity"
             android:max="255"
-            android:min="0"
+            settings:min="0"
+            settings:interval="5"
             android:defaultValue="200"
             android:dependency="pulse_2"/>
 
@@ -175,7 +157,7 @@
             android:key="pulse_solid_units_count"
             android:title="@string/pulse_solid_units_count"
             android:max="128"
-            android:min="32"
+            settings:min="32"
             android:defaultValue="64"
             android:dependency="pulse_2"/>
 
@@ -183,7 +165,7 @@
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             android:max="7"
-            android:min="2"
+            settings:min="2"
             android:defaultValue="5"
             android:dependency="pulse_2"/>
 
@@ -191,8 +173,9 @@
             android:key="lavamp_solid_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            android:min="200"
+            settings:min="200"
             settings:units="ms"
+            settings:interval="100"
             android:defaultValue="10000"
             android:dependency="pulse_2"/>
     </PreferenceCategory>

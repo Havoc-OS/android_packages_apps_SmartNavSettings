@@ -136,6 +136,12 @@ public class FlingSettings extends ActionFragment implements
         int rippleColor = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_RIPPLE_COLOR, Color.WHITE, UserHandle.USER_CURRENT);
         mRippleColor = (ColorPickerPreference) findPreference("eos_fling_ripple_color");
+        String rippleHexColor = String.format("#%08x", (0xffffffff & rippleColor));
+        if (rippleHexColor.equals("#ffffffff")) {
+            mRippleColor.setSummary(R.string.default_string);
+        } else {
+            mRippleColor.setSummary(rippleHexColor);
+        }
         mRippleColor.setNewPreviewColor(rippleColor);
         mRippleColor.setOnPreferenceChangeListener(this);
 
@@ -147,6 +153,12 @@ public class FlingSettings extends ActionFragment implements
         int trailsColor = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_TRAILS_COLOR, Color.WHITE, UserHandle.USER_CURRENT);
         mTrailsColor = (ColorPickerPreference) findPreference("eos_fling_trails_color");
+        String trailsHexColor = String.format("#%08x", (0xffffffff & trailsColor));
+        if (trailsHexColor.equals("#ffffffff")) {
+            mTrailsColor.setSummary(R.string.default_string);
+        } else {
+            mTrailsColor.setSummary(trailsHexColor);
+        }
         mTrailsColor.setNewPreviewColor(trailsColor);
         mTrailsColor.setOnPreferenceChangeListener(this);
 
@@ -608,9 +620,16 @@ public class FlingSettings extends ActionFragment implements
                     Settings.Secure.FLING_RIPPLE_ENABLED, enabled ? 1 : 0);
             return true;
         } else if (preference.equals(mRippleColor)) {
-            int color = ((Integer) newValue).intValue();
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hex.equals("#ffffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
+                preference.setSummary(hex);
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.FLING_RIPPLE_COLOR, color);
+                    Settings.Secure.FLING_RIPPLE_COLOR, intHex);
             return true;
         } else if (preference.equals(mTrailsEnabled)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
@@ -618,9 +637,16 @@ public class FlingSettings extends ActionFragment implements
                     Settings.Secure.FLING_TRAILS_ENABLED, enabled ? 1 : 0);
             return true;
         } else if (preference.equals(mTrailsColor)) {
-            int color = ((Integer) newValue).intValue();
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hex.equals("#ffffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
+                preference.setSummary(hex);
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.FLING_TRAILS_COLOR, color);
+                    Settings.Secure.FLING_TRAILS_COLOR, intHex);
             return true;
         } else if (preference == mTrailsWidth) {
             int val = (Integer) newValue;

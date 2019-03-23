@@ -16,7 +16,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/smartbar_settings_title" >
 
     <Preference
         android:key="smartbar_editor_mode"
@@ -44,6 +45,12 @@
         android:entryValues="@array/smartbar_button_animation_values"
         android:summary="@string/smartbar_button_animation_summary" />
 
+    <PreferenceScreen
+        android:key="pixel_anim"
+        android:fragment="com.android.settings.smartnav.PixelAnimDurationSettings"
+        android:title="@string/pixel_anim_title"
+        android:summary="@string/pixel_anim_summary"/>
+
     <ListPreference
         android:key="smartbar_longpress_delay"
         android:title="@string/smartbar_longpress_delay_title"
@@ -55,8 +62,9 @@
         android:key="navbar_buttons_alpha"
         android:title="@string/navbar_buttons_alpha_title"
         android:max="255"
-        android:min="0"
+        settings:min="0"
         settings:units=""
+        settings:interval="5"
         android:defaultValue="255"
         android:persistent="false" />
 
@@ -68,12 +76,6 @@
         settings:units="%"
         android:defaultValue="60"
         android:persistent="false" />
-
-    <PreferenceScreen
-        android:key="pixel_anim"
-        android:fragment="com.android.settings.smartnav.PixelAnimDurationSettings"
-        android:title="@string/pixel_anim_title"
-        android:summary="@string/pixel_anim_summary"/>
 
     <com.havoc.support.preferences.SecureSettingSwitchPreference
         android:key="smartbar_doubletap_sleep"

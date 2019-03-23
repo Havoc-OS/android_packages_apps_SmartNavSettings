@@ -15,7 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- SmartNav -->
-    <string name="bottom_nav_navigation_title">Navigation Bar</string>
+    <string name="navigation_title">Navigation Bar</string>
+    <string name="bottom_nav_navigation_title">Use Navigation Bar</string>
+    <string name="bottom_nav_navigation_summary">Use software buttons for navigation</string>
     <string name="navbar_interface_title">Interface</string>
     <string name="navbar_size">Bar size</string>
     <string name="navbar_mode">Navigation mode</string>
@@ -60,8 +62,8 @@
     <string name="fling_back_home_policy">Back and Home are required to be set at all times. To change a Back or Home assignment, set the desired assignment first.\n\nAlso, setting a double tap action will delay single tap a bit.</string>
     <string name="fling_split_bar_policy">When only a right or left action is assigned, the action applies to the full bar.</string>
     <string name="fling_def_summary">No action set</string>
-    <string name="fling_swipe_actions">Swipe gestures</string>
-    <string name="fling_tap_actions">Tap gestures</string>
+    <string name="fling_swipe_actions">Swipe Gestures</string>
+    <string name="fling_tap_actions">Tap Gestures</string>
     <string name="fling_short_swipe_right">Right short swipe</string>
     <string name="fling_short_swipe_left">Left short swipe</string>
     <string name="fling_long_swipe_right">Right long swipe</string>
@@ -93,13 +95,17 @@
     <string name="fling_trails_color_title">Trail color</string>
     <string name="fling_trails_width_title">Trail width</string>
     <string name="fling_appearance">Appearance</string>
-    <string name="fling_show_logo_title">Show Fling logo</string>
+    <string name="fling_show_logo_title">Fling logo</string>
+    <string name="fling_show_logo_summary">Show fling logo in the navbar</string>
     <string name="fling_animate_logo_title">Animate logo</string>
     <string name="fling_animate_logo_summary">Logo animates on touch events</string>
     <string name="fling_logo_color">Logo color</string>
-    <string name="fling_logo_custom_logo_pick_title">Custom logo icon</string>
-    <string name="fling_logo_custom_logo_image_pick_title">Custom logo image</string>
-    <string name="fling_logo_custom_logo_reset_title">Reset logo icon</string>
+    <string name="fling_logo_custom_logo_pick_title">Custom logo (Icon)</string>
+    <string name="fling_logo_custom_logo_pick_summary">Select a custom logo from an icon pack</string>
+    <string name="fling_logo_custom_logo_image_pick_title">Custom logo (Image)</string>
+    <string name="fling_logo_custom_logo_image_pick_summary">Select a custom logo from an gallery</string>
+    <string name="fling_logo_custom_logo_reset_title">Reset logo</string>
+    <string name="fling_logo_custom_logo_reset_summary">Reset custom logo to default</string>
     <string name="fling_show_ripple_title">Show ripple</string>
     <string name="fling_show_ripple_summary">Ripple effect on touch events</string>
     <string name="fling_ripple_color">Ripple color</string>
@@ -131,23 +137,22 @@
     <string name="pulse_render_mode_title">Render mode</string>
     <string name="pulse_render_mode_fading_bars">Fading blocks</string>
     <string name="pulse_render_mode_solid_lines">Solid lines</string>
-    <string name="fling_pulse_color">Pulse color</string>
-    <string name="fling_pulse_color_summary">Used also as fallback for automatic color</string>
-    <string name="eos_fling_lavalamp_title">Turn on Lava Lamp</string>
-    <string name="eos_fling_lavalamp_summary">Pulse animates a smooth lava lamp style color blend</string>
+    <string name="fling_pulse_color">Custom color</string>
+    <string name="fling_pulse_color_summary">Also used as a fallback for automatic color</string>
+    <string name="eos_fling_lavalamp_title">Lava lamp</string>
+    <string name="eos_fling_lavalamp_summary">Use a smooth lava lamp style color blend animation</string>
     <string name="pulse_advanced_category">Advanced</string>
-    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
+    <string name="pulse_legacy_mode_advanced_category">Fading Blocks</string>
     <string name="pulse_custom_fudge_factor">Sanity level</string>
-    <string name="lavamp_solid_speed_title">Lava Lamp speed</string>
-    <string name="pulse_solid_units_count">Solid lines count</string>
-    <string name="pulse_solid_lines_count">Solid lines count</string>
-    <string name="pulse_solid_units_opacity">Solid lines opacity</string>
-    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
-    <string name="pulse_custom_buttons_opacity_title">Smartbar buttons opacity on Pulse</string>
-    <string name="pulse_auto_color_title">Automatic Pulse color</string>
-    <string name="pulse_auto_color_summary">Sync color with album arts. Overrides Lava Lamp and lines opacity.</string>
-    <string name="pulse_accent_color_title">Use accent color for pulse</string>
-    <string name="pulse_accent_color_summary">Enabling this will make pulse use your current accent color. It will disable Lava Lamp</string>
+    <string name="lavamp_solid_speed_title">Color blend interval</string>
+    <string name="pulse_solid_units_count">Lines count</string>
+    <string name="pulse_solid_units_opacity">Lines opacity</string>
+    <string name="pulse_solid_dimen_category">Solid Lines</string>
+    <string name="pulse_custom_buttons_opacity_title">Smartbar buttons opacity</string>
+    <string name="pulse_auto_color_title">Automatic color</string>
+    <string name="pulse_auto_color_summary">Sync color with album arts</string>
+    <string name="pulse_accent_color_title">Accent color</string>
+    <string name="pulse_accent_color_summary">Use default system accent color for pulse</string>
     <string name="pulse_blacklist_title">Apps blacklist</string>
     <string name="pulse_blacklist_summary">Apps to be skipped for Pulse</string>
     <string name="pulse_blacklist_apps_cat_title">Blacklist</string>
@@ -155,13 +160,13 @@
     <string name="pulse_blacklist_apps_summary">Apps to not show in the panel</string>
     <string name="pulse_blacklist_add_apps_title">Add app</string>
     <string name="pulse_blacklist_add_apps_summary">Tap here to add, tap on added app to remove it</string>
-    <string name="fling_lavalamp_color_from">Lava Lamp start color</string>
-    <string name="fling_lavalamp_color_to">Lava Lamp end color</string>
+    <string name="fling_lavalamp_color_from">Start color</string>
+    <string name="fling_lavalamp_color_to">End color</string>
     <string name="pulse_colors_reset_title">Reset pulse colors</string>
     <string name="pulse_colors_reset_message">Are you sure you want to reset these colors to default?</string>
-    <string name="fling_smoothing_enabled_title">Turn on smoothing</string>
-    <string name="fling_smoothing_enabled_summary">Each bar is animated more smoothly</string>
-    <string name="pulse_fading_blocks_opacity">Fading blocks opacity</string>
+    <string name="fling_smoothing_enabled_title">Smoothing</string>
+    <string name="fling_smoothing_enabled_summary">Enable smoother animation for each bar</string>
+    <string name="pulse_fading_blocks_opacity">Blocks opacity</string>
 
     <!-- Pulse config -->
     <string name="pulse_custom_dimen">Bar width</string>
@@ -192,9 +197,9 @@
     <string name="smartbar_button_animation_ripple">Ripple</string>
     <string name="smartbar_button_animation_spring">Spring</string>
     <string name="smartbar_button_animation_flip">Flip</string>
-    <string name="smartbar_button_animation_pixel">Pixel (all buttons)</string>
-    <string name="smartbar_button_animation_pixel_home">Pixel (Home button only)</string>
-    <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Home button only) and Ripple</string>
+    <string name="smartbar_button_animation_pixel">Pixel</string>
+    <string name="smartbar_button_animation_pixel_home">Pixel (Home button)</string>
+    <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Home button) and Ripple</string>
     <string name="smartbar_factory_reset_title">Reset to stock</string>
     <string name="smartbar_factory_reset_confirm">Are you sure you want to reset Smartbar to stock settings?</string>
     <string name="smartbar_ime_action_title">Input method and media actions</string>
@@ -226,17 +231,16 @@
     <string name="reset">Reset</string>
 
 	<!-- Onehand UI mode -->
-    <string name="one_hand_mode_title">One-handed Mode</string>
-    <string name="one_hand_mode_summary">Allow swiping across right or left on navbar to enable</string>
+    <string name="one_hand_mode_title">One-handed mode</string>
+    <string name="one_hand_mode_summary">Swipe across right or left on navbar to enable</string>
 
 	<!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel animation</string>
-    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
+    <string name="pixel_navbar_anim_summary">Use pixel animation for home button</string>
 
     <!-- Pixel Animation Settings -->
-    <string name="pixel_anim_title">Pixel navbar animation </string>
+    <string name="pixel_anim_title">Pixel animation </string>
     <string name="pixel_anim_summary">Customize various elements of pixel animation on navbar</string>
-    <string name="pixel_anim_warning">Customize various elements of pixel animation on navbar. WARNING! Changing default values can cause performance drop in animation.Proceed at your own risk</string>
     <string name="pixel_anim_x_title">Horizontal duration</string>
     <string name="pixel_anim_y_title">Vertical duration</string>
     <string name="collapse_anim_duration_ry_title">Collapse duration</string>
@@ -260,8 +264,8 @@
 
     <!-- Stock navbar -->
     <string name="navbar_layout_title">Layout</string>
-    <string name="navbar_layout_summary">Customize the buttons displayed on Navbar</string>
+    <string name="navbar_layout_summary">Customize the buttons displayed on navbar</string>
     <string name="nav_gesture_settings_title">Gestures</string>
-    <string name="nav_gesture_settings_summary">Toggle the gestures for Navbar</string>
+    <string name="nav_gesture_settings_summary">Toggle the system gestures for navbar</string>
     
 </resources>
