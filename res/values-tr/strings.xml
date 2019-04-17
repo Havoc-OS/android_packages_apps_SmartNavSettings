@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- SmartNav -->
     <string name="navigation_title">Gezinme çubuğu</string>
-    <string name="bottom_nav_navigation_title">Gezinme çubuğu bullan</string>
+    <string name="bottom_nav_navigation_title">Gezinme çubuğu kullanın</string>
     <string name="bottom_nav_navigation_summary">Gezinme için yazılımsal tuşlar kullanın</string>
     <string name="navbar_interface_title">Arayüz</string>
     <string name="navbar_size">Çubuk boyutu</string>
